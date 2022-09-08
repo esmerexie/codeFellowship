@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+<body>
+
+<img alt="Profile pic" src="./user.png" width="100" height="100">
+<h3 th:if="${username != null}" th:text="${'Welcome, ' + username}"></h3>
+
+<h3 th:if="${firstName != null}" th:text="${'First Name: ' + firstName}"></h3>
+<h3 th:if="${lastName != null}" th:text="${'Last Name: ' + lastName}"></h3>
+<h3 th:if="${dateOfBirth != null}" th:text="${'Your Birthday: ' + dateOfBirth}"></h3>
+<h3 th:if="${bio != null}" th:text="${'Bio: ' + bio}"></h3>
+
+<form th:if="${user}" action="/profile" method="post">
+    <fieldset>
+        <legend>Make a Post!</legend>
+        <label>Text</label>
+        <textarea name="body"></textarea>
+        <input type="submit" value="Create Post">
+    </fieldset>
+
+</form>
+
+<section>
+    <ul th:each="post: ${user.posts}">
+        <li>
+            <p th:text="'Body: ' + ${post.body}"></p>
+            <h6 th:text="${#temporals.format(post.time, 'yyyy-MM-dd HH:mm:ss')}"></h6>
+        </li>
+
+    </ul>
+</section>
+
+<a th:if="${username}" href="/logout">Log Out</a>
+<a th:if="${username}" href="/">Home</a>
+</body>
+</html>

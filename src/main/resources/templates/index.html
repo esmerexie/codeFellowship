@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<html lang="en"  xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>HomePage</title>
@@ -8,14 +8,11 @@
 
 <h1>Welcome to the home page!</h1>
 
-<h3 th:if="${user}" th:text="${'Username: ' + user.username }"></h3>
-<p th:if="${user}" th:text="${'First Name: ' + user.firstName}"></p>
-<p th:if="${user}" th:text="${'Last Name: ' + user.lastName}"></p>
-<p th:if="${user}" th:text="${'Bio: ' + user.bio}"></p>
-<p th:if="${user}" th:text="${'Date of Birth: ' + user.dateOfBirth}"></p>
+<a th:if="${username}" href="/profile">Profile Page</a>
 
-<a th:if="!${user}" href="/login">Log In</a>
-<a th:if="!${user}" href="/signup">Or Sign Up</a>
-<a th:if="${user}" href="/logout">Log Out</a>
+
+<a th:if="!${username}" href="/login">Log In</a>
+<a th:if="!${username}" href="/signup">Or Sign Up</a>
+<a th:if="${username}" href="/logout">Log Out</a>
 </body>
 </html>
