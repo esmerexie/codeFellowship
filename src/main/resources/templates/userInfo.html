@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>User Info</title>
+</head>
+<body>
+
+
+<h3 th:if="${username != null}" th:text="${'User Name: ' + dbUserUsername}"></h3>
+<h3 th:if="${username != null}" th:text="${'First Name: ' + dbUserFirstName}"></h3>
+<h3 th:if="${username != null}" th:text="${'Last Name: ' + dbUserLastName}"></h3>
+<h3 th:if="${username != null}" th:text="${'Date of Birth: ' + dbUserDOB}"></h3>
+<h3 th:if="${username != null}" th:text="${'Bio: ' + dbUserBio}"></h3>
+<h3 th:if="${username != null}" th:text="${'User Id: ' + dbUserId}"></h3>
+<h3 th:if="${username != null}" th:text="${'Time: ' + testDate}"></h3>
+
+
+<br>
+<br>
+<br>
+<a th:if="${username}" href="/logout">Log Out</a>
+<a th:if="${username}" href="/">Home</a>
+
+</body>
+</html>
